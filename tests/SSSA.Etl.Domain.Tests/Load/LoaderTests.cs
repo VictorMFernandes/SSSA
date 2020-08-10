@@ -34,7 +34,7 @@ namespace SSSA.Etl.Domain.Tests.Load
                 .Returns(new LocalizedString(Loader.NotConfiguredErrorMessage, Loader.NotConfiguredErrorMessage));
 
             // Act
-            var loadingResult = await _loader.LoadAsync(new object[] { "valid", "data" }, "valid destination");
+            var loadingResult = await _loader.Load(new object[] { "valid", "data" }, "valid destination");
 
             // Assert
             Assert.False(loadingResult.Succeeded);
@@ -51,7 +51,7 @@ namespace SSSA.Etl.Domain.Tests.Load
                     new JoinByStringBuilderStrategy("ç"));
 
             // Act
-            var transformationResult = await _loader.LoadAsync(new string[] { "this", "is", "valid", "data" }, _validDestination);
+            var transformationResult = await _loader.Load(new string[] { "this", "is", "valid", "data" }, _validDestination);
 
             // Assert
             Assert.True(transformationResult.Succeeded);

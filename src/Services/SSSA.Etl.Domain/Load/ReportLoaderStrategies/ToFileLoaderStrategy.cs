@@ -6,21 +6,14 @@ namespace SSSA.Etl.Domain.Load.ReportLoaderStrategies
 {
     public class ToFileLoaderStrategy : IReportLoaderStrategy
     {
-        private readonly string _fileName;
-
-        public ToFileLoaderStrategy(string fileName)
-        {
-            _fileName = fileName;
-        }
-
-        public async Task<LoadResult> LoadAsync(string content, string destination)
+        public async Task<LoadResult> LoadAsync(string content, string destination, string reportName)
         {
             try
             {
                 Directory.CreateDirectory(destination);
-                var filePath = Path.Combine(destination, $"{DateTime.Now:yyyyMMddHHmmss}{_fileName}");
-                using var sw = new StreamWriter(filePath, false);
-                await sw.WriteAsync(content);
+                var filePath = Path.Combine(destination, $"{DateTime.Now:yyyyMMddHHmmss}{reportName}");
+
+                await File.AppendAllTextAsync(filePath, content);
                 return new LoadResult(filePath);
             }
             catch (Exception ex)

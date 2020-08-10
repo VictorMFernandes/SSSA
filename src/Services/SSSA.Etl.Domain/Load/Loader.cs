@@ -31,7 +31,7 @@ namespace SSSA.Etl.Domain.Load
             _configured = true;
         }
 
-        public async Task<LoadResult> LoadAsync(IEnumerable<object> data, string destination)
+        public async Task<LoadResult> LoadAsync(IEnumerable<object> data, string destination, string reportName)
         {
             if (!_configured)
             {
@@ -39,7 +39,7 @@ namespace SSSA.Etl.Domain.Load
             }
 
             var content = _reportBuilderStrategy.Build(data);
-            return await _reportLoaderStrategy.LoadAsync(content, destination);
+            return await _reportLoaderStrategy.LoadAsync(content, destination, reportName);
         }
     }
 }

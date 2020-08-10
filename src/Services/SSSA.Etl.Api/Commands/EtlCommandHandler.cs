@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
 using SSSA.Core.Api.Communication.Commands;
 using SSSA.Core.Api.Communication.Errors;
 using SSSA.Core.Api.Communication.Mediator;
@@ -21,11 +23,15 @@ namespace SSSA.Etl.Api.Commands
     public class EtlCommandHandler : CommandHandlerBase,
         IRequestHandler<CreateSalesReportCommand, bool>
     {
+        private readonly ILogger<EtlCommandHandler> _logger;
+        private readonly IStringLocalizer<EtlCommandHandler> _localizer;
         private readonly IExtractor _extractor;
         private readonly ITransformer _transformer;
         private readonly ILoader _loader;
 
         public EtlCommandHandler(
+            ILogger<EtlCommandHandler> logger,
+            IStringLocalizer<EtlCommandHandler> localizer,
             IMediatorHandler mediatorHandler,
             IExtractor extractor,
             ITransformer transformer,
@@ -35,6 +41,8 @@ namespace SSSA.Etl.Api.Commands
             _extractor = extractor;
             _transformer = transformer;
             _loader = loader;
+            _logger = logger;
+            _localizer = localizer;
         }
 
         public async Task<bool> Handle(CreateSalesReportCommand request, CancellationToken cancellationToken)
@@ -64,16 +72,18 @@ namespace SSSA.Etl.Api.Commands
                 }
 
                 _loader.Configure(
-                    new ToFileLoaderStrategy(Path.GetFileName(inputFilePath)),
+                    new ToFileLoaderStrategy(),
                     new JoinByStringBuilderStrategy("ç"));
 
-                var loadResult = await _loader.LoadAsync(transformationResult.Value, request.OutputFilePath);
+                var loadResult = await _loader.LoadAsync(transformationResult.Value, request.OutputFilePath, Path.GetFileName(inputFilePath));
                 if (!loadResult.Succeeded)
                 {
                     await MediatorHandler.NotifyErrorAsync(new ErrorNotification(nameof(Loader), loadResult.ErrorMessage));
                     return false;
                 }
             }
+
+            _logger.LogInformation(_localizer["Command {@command} executed successfully"], request);
 
             return true;
         }

@@ -18,7 +18,7 @@ namespace SSSA.App.Worker.Workers
         private const string TempFileStart = "~$";
         private const string RetroactiveReportsMessage = " There are already files in the source directory, do you wish to generate new reports based on them? (y/n)";
         private const string AffirmativeAnswer = "y";
-        private const string GenericCommandErrorMessage = "Something went wrong when trying to execute the command {command}. Notifications: {notifications}";
+        private const string GenericCommandErrorMessage = "Something went wrong when trying to execute the command {@command}. Notifications: {@notifications}";
 
         private readonly ILogger<DirectoryWatcherWorker> _logger;
         private readonly IStringLocalizer<DirectoryWatcherWorker> _localizer;
@@ -91,7 +91,7 @@ namespace SSSA.App.Worker.Workers
 
         private void HandleError<T>(CommandBase<T> command, Exception ex = null)
         {
-            _logger.LogError(ex, _localizer[GenericCommandErrorMessage], command, _errorHandler.GetNotifications());
+            _logger.LogError(ex, _localizer[GenericCommandErrorMessage], command, _errorHandler.GetNotifications().Select(x => x.Value));
         }
     }
 }

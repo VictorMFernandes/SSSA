@@ -10,6 +10,6 @@ namespace SSSA.Etl.Domain.Load
         void Configure(
             IReportLoaderStrategy reportLoaderStrategy,
             IReportBuilderStrategy reportBuilderStrategy);
-        Task<LoadResult> LoadAsync(IEnumerable<object> data, string destination);
+        Task<LoadResult> LoadAsync(IEnumerable<object> data, string destination, string reportName);
     }
 }

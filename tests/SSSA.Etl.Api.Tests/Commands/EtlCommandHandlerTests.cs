@@ -53,7 +53,7 @@ namespace SSSA.Etl.Api.Tests.Commands
                 .Returns(succeededTransformationResult);
 
             _mocker.GetMock<ILoader>()
-                .Setup(x => x.LoadAsync(It.IsAny<IEnumerable<object>>(), It.IsAny<string>()))
+                .Setup(x => x.Load(It.IsAny<IEnumerable<object>>(), It.IsAny<string>()))
                 .Returns(Task.FromResult(succeededLoadResult));
 
             // Act
@@ -88,7 +88,7 @@ namespace SSSA.Etl.Api.Tests.Commands
                     It.IsAny<IReportBuilderStrategy>()), Times.Once);
             _mocker.GetMock<ILoader>()
                    .Verify(
-                r => r.LoadAsync(
+                r => r.Load(
                     It.IsAny<IEnumerable<object>>(),
                     It.IsAny<string>()), Times.Once);
 
@@ -118,7 +118,7 @@ namespace SSSA.Etl.Api.Tests.Commands
                 .Returns(succeededTransformationResult);
 
             _mocker.GetMock<ILoader>()
-                .Setup(x => x.LoadAsync(It.IsAny<IEnumerable<object>>(), It.IsAny<string>()))
+                .Setup(x => x.Load(It.IsAny<IEnumerable<object>>(), It.IsAny<string>()))
                 .Returns(Task.FromResult(succeededLoadResult));
 
             // Act
@@ -153,7 +153,7 @@ namespace SSSA.Etl.Api.Tests.Commands
                     It.IsAny<IReportBuilderStrategy>()), Times.Never);
             _mocker.GetMock<ILoader>()
                    .Verify(
-                r => r.LoadAsync(
+                r => r.Load(
                     It.IsAny<IEnumerable<object>>(),
                     It.IsAny<string>()), Times.Never);
 
@@ -185,7 +185,7 @@ namespace SSSA.Etl.Api.Tests.Commands
                 .Returns(failedTransformationResult);
 
             _mocker.GetMock<ILoader>()
-                .Setup(x => x.LoadAsync(It.IsAny<IEnumerable<object>>(), It.IsAny<string>()))
+                .Setup(x => x.Load(It.IsAny<IEnumerable<object>>(), It.IsAny<string>()))
                 .Returns(Task.FromResult(succeededLoadResult));
 
             // Act
@@ -220,7 +220,7 @@ namespace SSSA.Etl.Api.Tests.Commands
                     It.IsAny<IReportBuilderStrategy>()), Times.Never);
             _mocker.GetMock<ILoader>()
                    .Verify(
-                r => r.LoadAsync(
+                r => r.Load(
                     It.IsAny<IEnumerable<object>>(),
                     It.IsAny<string>()), Times.Never);
 
@@ -252,7 +252,7 @@ namespace SSSA.Etl.Api.Tests.Commands
                 .Returns(succeededTransformationResult);
 
             _mocker.GetMock<ILoader>()
-                .Setup(x => x.LoadAsync(It.IsAny<IEnumerable<object>>(), It.IsAny<string>()))
+                .Setup(x => x.Load(It.IsAny<IEnumerable<object>>(), It.IsAny<string>()))
                 .Returns(Task.FromResult(failedLoadResult));
 
             // Act
@@ -287,7 +287,7 @@ namespace SSSA.Etl.Api.Tests.Commands
                     It.IsAny<IReportBuilderStrategy>()), Times.Once);
             _mocker.GetMock<ILoader>()
                    .Verify(
-                r => r.LoadAsync(
+                r => r.Load(
                     It.IsAny<IEnumerable<object>>(),
                     It.IsAny<string>()), Times.Once);
 
