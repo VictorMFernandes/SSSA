@@ -5,9 +5,9 @@ South System Sales Analytics
 
 ## Descrição técnica
 
-- O sistema foi criado em [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-- É possível separar a aplicação em 3 partes: App, Services e Building blocks. Em App se econtram as aplicações, projetos que vão gerar o executável de fato.
-Em Services encontramos as regras de negócio e como executá-las. Building blocks servem apenas de auxílio às outras partes.
+- O sistema foi criado em [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1);
+- É possível separar a aplicação em 3 partes: App, Services e Building blocks. Em App se econtram as aplicações/projetos que vão gerar o executável de fato.
+Em Services encontramos as regras de negócio e como executá-las. Building blocks servem apenas de auxílio às outras partes;
 
 <a href="https://ibb.co/mhrB59X"><img src="https://i.ibb.co/KVcGx2L/SSSA.png" alt="SSSA" border="0"></a>
 
@@ -15,7 +15,7 @@ Em Services encontramos as regras de negócio e como executá-las. Building bloc
 - Caso já existam arquivos na pasta, é perguntado ao usuário se ele deseja fazer a geração retroativa de relatórios baseados neles;
 - Um gatilho é disparado quando um arquivo for criado na pasta definida. Esse gatilho envia um comando para o **IMediatorHandler** ([mediator pattern](https://pt.wikipedia.org/wiki/Mediator)), que definirá 
 quem receberá esse comando, no caso será **EtlCommandHandler**;
-- EtlCommandHandler orquestra as classes de domínio, **Extractor**, **Transformer**, **Loader** para produzir um relatório;
+- EtlCommandHandler orquestra as classes de domínio: **Extractor**, **Transformer**, **Loader** para produzir um relatório;
 - Cada classe dessas pode ter seu comportamento configurado por meio de [estratégias](https://pt.wikipedia.org/wiki/Strategy). Para o problema proposto, por exemplo,
 a classe Extractor foi configurada da seguinte maneira:
 
