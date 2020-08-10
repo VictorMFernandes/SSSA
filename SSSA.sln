@@ -7,7 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Solution Items", "1-Solut
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
-		README.md = README.md
 		stylecop.json = stylecop.json
 		StyleCop.ruleset = StyleCop.ruleset
 	EndProjectSection
@@ -32,17 +31,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{BE8B57CC-4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSSA.Etl.Api", "src\Services\SSSA.Etl.Api\SSSA.Etl.Api.csproj", "{4411E07B-797D-4D97-91DB-E5352D2B382E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSSA.Core.Api", "src\BuildingBlocks\SSSA.Core.Api\SSSA.Core.Api.csproj", "{0C0D28FC-D2B3-4AFA-AEA7-9FC9DDD35266}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSSA.Core.Api", "src\BuildingBlocks\SSSA.Core.Api\SSSA.Core.Api.csproj", "{0C0D28FC-D2B3-4AFA-AEA7-9FC9DDD35266}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C2E26406-F0B9-4DDD-834C-F71DC5F2AAFA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E10CE01E-AA79-47C7-85A7-CC94AD8F8CE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSSA.Helper.Tests", "tests\SSSA.Helper.Tests\SSSA.Helper.Tests.csproj", "{01E52A6B-130A-4583-881D-4EB143561CA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSSA.Helper.Tests", "tests\SSSA.Helper.Tests\SSSA.Helper.Tests.csproj", "{01E52A6B-130A-4583-881D-4EB143561CA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSSA.Etl.Api.Tests", "tests\SSSA.Etl.Api.Tests\SSSA.Etl.Api.Tests.csproj", "{DD26F468-03AD-415F-B473-C773591F0FC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSSA.Etl.Api.Tests", "tests\SSSA.Etl.Api.Tests\SSSA.Etl.Api.Tests.csproj", "{DD26F468-03AD-415F-B473-C773591F0FC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSSA.Etl.Domain.Tests", "tests\SSSA.Etl.Domain.Tests\SSSA.Etl.Domain.Tests.csproj", "{B23041BA-A702-4A5C-BCAC-E5DB4BB61524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSSA.Etl.Domain.Tests", "tests\SSSA.Etl.Domain.Tests\SSSA.Etl.Domain.Tests.csproj", "{B23041BA-A702-4A5C-BCAC-E5DB4BB61524}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
