@@ -6,7 +6,7 @@ South System Sales Analytics
 ## Descrição técnica
 
 - O sistema foi criado em [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1);
-- É possível separar a aplicação em 3 partes: App, Services e Building blocks. Em Apps se econtram as aplicações/projetos que vão gerar o executável de fato.
+- É possível separar a aplicação em 3 partes: Apps, Services e Building blocks. Em Apps se econtram as aplicações/projetos que vão gerar o executável de fato.
 Em Services encontramos as regras de negócio e como executá-las. Building blocks servem apenas de auxílio às outras partes;
 
 <a href="https://ibb.co/mhrB59X"><img src="https://i.ibb.co/KVcGx2L/SSSA.png" alt="SSSA" border="0"></a>
