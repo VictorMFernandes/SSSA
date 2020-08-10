@@ -11,7 +11,8 @@ Em Services encontramos as regras de negócio e como executá-las. Building bloc
 
 <a href="https://ibb.co/mhrB59X"><img src="https://i.ibb.co/KVcGx2L/SSSA.png" alt="SSSA" border="0"></a>
 
-- O programa observa arquivos criados em um diretório (o caminho do diretório pode ser definido no arquivo de configurações appsettings.json); 
+- O programa observa arquivos criados em um diretório (o caminho do diretório pode ser definido no arquivo de configurações appsettings.json), que por padrão é
+"SSSA\src\Apps\SSSA.App.Worker\data\in"; 
 - Caso já existam arquivos na pasta, é perguntado ao usuário se ele deseja fazer a geração retroativa de relatórios baseados neles;
 - Um gatilho é disparado quando um arquivo for criado na pasta definida. Esse gatilho envia um comando para o **IMediatorHandler** ([mediator pattern](https://pt.wikipedia.org/wiki/Mediator)), que definirá 
 quem receberá esse comando, no caso será **EtlCommandHandler**;
@@ -24,4 +25,6 @@ a classe Extractor foi configurada da seguinte maneira:
     - A identificação das entidades é baseada em uma das propriedades separadas anteriormente, no caso a primeira, index 0;
     - A separação dos itens de uma venda também tem uma estratégia própia, separação por texto foi a escolhida, onde, itens separados por "," e suas propriedades por "-".
 
+- A classe Loader é responsável por salvar os arquivos gerados, atualmente, o destino é um arquivo de texto. O caminho do diretório destino pode ser alterado no arquivo de
+configurações appsettings.json), que por padrão é "SSSA\src\Apps\SSSA.App.Worker\data\out"
 - Existem projetos de teste para as principais partes dos outros projetos.
