@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using SSSA.Core.Api.Communication.Errors;
 using SSSA.Core.Api.Communication.Mediator;
 using SSSA.Etl.Api.Configuration;
+using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,8 +15,9 @@ namespace SSSA.App.Worker.Workers
 {
     internal class DirectoryWatcherWorker : BackgroundService
     {
-        private const string WorkerStartedMessage = "{workerName} started.";
-        private const string WorkerStoppedMessage = "{workerName} stopped.";
+        private const string WorkerStartedMessage = "{@workerName} started.";
+        private const string WorkerStoppedMessage = "{@workerName} stopped.";
+        private const string ListeningMessage = "{workerName} listening changes made to directory {directory} running at: {time}.";
 
         private readonly ILogger<DirectoryWatcherWorker> _logger;
         private readonly IStringLocalizer<DirectoryWatcherWorker> _localizer;
@@ -68,6 +70,8 @@ namespace SSSA.App.Worker.Workers
 
             while (!stoppingToken.IsCancellationRequested)
             {
+                _logger.LogInformation(_localizer[ListeningMessage], nameof(DirectoryWatcherWorker), _dataSettings.Source, DateTimeOffset.Now);
+                await Task.Delay(3000, stoppingToken);
             }
         }
 
