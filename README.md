@@ -9,7 +9,7 @@ South System Sales Analytics
 - É possível separar a aplicação em 3 partes: Apps, Services e Building blocks. Em Apps se econtram as aplicações/projetos que vão gerar o executável de fato.
 Em Services encontramos as regras de negócio e como executá-las. Building blocks servem apenas de auxílio às outras partes;
 
-<a href="https://ibb.co/mhrB59X"><img src="https://i.ibb.co/KVcGx2L/SSSA.png" alt="SSSA" border="0"></a>
+<img src="https://res.cloudinary.com/appinova/image/upload/v1598189940/Pessoal/SSSA.png" alt="SSSA architecture" border="0" />
 
 - O programa observa arquivos criados em um diretório (o caminho do diretório pode ser definido no arquivo de configurações appsettings.json), que por padrão é
 "SSSA\src\Apps\SSSA.App.Worker\data\in"; 
